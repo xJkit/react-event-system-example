@@ -3,14 +3,6 @@ import React from 'react';
 import { render } from 'react-dom';
 import { browserHistory, Router } from 'react-router';
 
-// State Manager
-import { Provider } from 'react-redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import configureStore from 'store/configureStore';
-// ---
-const store = configureStore();
-const history = syncHistoryWithStore(browserHistory, store);
-
 // Routings
 import routes from 'routes';
 
@@ -18,8 +10,6 @@ import routes from 'routes';
 import 'styles/styles.sass';
 
 render(
-  <Provider store={store}>
-    <Router history={history} routes={routes} />
-  </Provider>,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('root')
 );
